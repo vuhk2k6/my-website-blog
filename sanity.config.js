@@ -1,21 +1,18 @@
-// File: sanity.config.ts
+// File: sanity.config.js
 
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemaTypes' // Or './schemas'
-
-// This is the new, more robust way to define your project details
-const projectId = process.env.SANITY_STUDIO_PROJECT_ID!
-const dataset = process.env.SANITY_STUDIO_DATASET!
+import {schemaTypes} from './schemaTypes' // Hoặc './schemas'
 
 export default defineConfig({
   name: 'default',
   title: 'My News Blog',
 
-  // We are now using the variables defined above
-  projectId,
-  dataset,
+  // --- Sử dụng giá trị trực tiếp để đảm bảo không có lỗi ---
+  projectId: 'tg4gc2em',
+  dataset: 'production',
+  // --------------------------------------------------------
 
   plugins: [structureTool(), visionTool()],
 
